@@ -1,0 +1,180 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-image: url('img/packages_bg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.navbar {
+    background-color: #17375f;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 40px;
+    box-sizing: border-box;
+}
+
+.logo img {
+    height: 45px;
+}
+
+.menu {
+    display: flex;
+    gap: 30px;
+    margin-left: auto;
+    padding-right: 20px;
+}
+
+.menu a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+}
+
+.menu a:hover {
+    opacity: 0.7;
+}
+
+.btn-registro a {
+    background-color: #F9B748;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.btn-registro a:hover {
+    background-color: #e0a33d;
+}
+
+.form-container {
+    background: white;
+    margin-top: 5%;
+    border-radius: 12px;
+    padding: 40px;
+    width: 100%;
+    max-width: 450px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    color: #1a3a5c;
+    font-size: 28px;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.form-group {
+    flex: 1;
+    margin-bottom: 15px;
+}
+
+.form-group.full-width {
+    width: 100%;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    background: #f9fafb;
+}
+
+input:focus {
+    outline: none;
+    border-color: #1e4a7a;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(30, 74, 122, 0.1);
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: flex-start;
+    margin: 20px 0;
+    gap: 10px;
+}
+
+input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin-top: 2px;
+    cursor: pointer;
+    accent-color: #1e4a7a;
+}
+
+.checkbox-group label {
+    color: #4b5563;
+    font-size: 14px;
+    line-height: 1.5;
+    cursor: pointer;
+}
+
+.submit-btn {
+    width: 60%;
+    padding: 14px;
+    background: #1e4a7a;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin: 10px auto 0;
+    display: block;
+}
+
+.submit-btn:hover {
+    background: #163a5f;
+}
+
+.submit-btn:active {
+    transform: scale(0.98);
+}
+
+.login-link {
+    text-align: center;
+    margin-top: 20px;
+    color: #6b7280;
+    font-size: 14px;
+}
+
+.login-link a {
+    color: #1e4a7a;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
