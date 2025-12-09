@@ -63,7 +63,10 @@ body {
 .hero {
     position: relative;
     height: 330px;
-    background: url("img/packages_bg.png") center/cover no-repeat;
+    background: url("img/packages_bg.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
