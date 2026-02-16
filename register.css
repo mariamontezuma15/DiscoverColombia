@@ -163,19 +163,27 @@ input[type="checkbox"] {
     transform: scale(0.98);
 }
 
-.login-link {
+.register-link {
     text-align: center;
     margin-top: 20px;
     color: #6b7280;
     font-size: 14px;
 }
 
-.login-link a {
+.register-link a {
     color: #1e4a7a;
     text-decoration: none;
     font-weight: 600;
 }
 
-.login-link a:hover {
+.register-link a:hover {
     text-decoration: underline;
+}
+
+.btn{
+    background-color: #F9B748;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 20px;
+    border-color: #fff; 
 }
