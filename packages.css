@@ -270,3 +270,59 @@ footer p {
     font-weight: bold;
     margin-bottom: 5px;
 }
+
+/* Estilos para modales y overlays */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    display: none;
+}
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    z-index: 1001;
+    max-width: 500px;
+    width: 90%;
+    display: none;
+}
+
+.modal input, .modal textarea {
+    width: 100%;
+    margin: 10px 0;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.modal button {
+    margin-right: 10px;
+}
+
+/* Estilos para el saludo de usuario */
+.btn-registro.logged-in {
+    color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+/* Estilos para el título de sección con botón */
+.section-title-with-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-agregar-paquete {
+    margin-right: 40px;
+}
