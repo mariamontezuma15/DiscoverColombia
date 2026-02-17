@@ -59,6 +59,31 @@ body {
     background-color: #e0a33d;
 }
 
+/* Logged-in variant: show greeting and logout link */
+.btn-registro.logged-in {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+}
+.btn-registro.logged-in .user-menu { display: inline-flex; flex-direction: column; align-items: flex-end; }
+.btn-registro.logged-in .greeting { color: #ffffff; font-weight: 700; }
+.btn-registro.logged-in .logout-row a { color: #F9B748; font-weight: 700; text-decoration: none; }
+.btn-registro.logged-in .logout-row a:hover { color: #e0a33d; }
+
+/* Small yellow logout text (lighter weight, minimal padding) */
+.logout-link.small-logout {
+    color: #F9B748;
+    font-weight: 700;
+    font-size: 12px;
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
+    background: none;
+    box-shadow: none;
+}
+.logout-link.small-logout:hover { color: #F9B748; text-decoration: underline; background: none; }
+
 .container {
         
 max-width: 900px; 
