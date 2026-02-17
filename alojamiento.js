@@ -173,103 +173,13 @@ document.addEventListener('DOMContentLoaded', function () {
             `;
         }
 
-        // render map image (use local asset ubicacion_en_el_mapa.png) and overlay two vector shapes
+        // render map image (use local asset ubicacion_en_el_mapa.png)
         if (mapContainer) {
-            // Insert image wrapper
             mapContainer.innerHTML = `
                 <div class="map-wrapper">
                     <img src="img/ubicacion_en_el_mapa.png" alt="Ubicación en el mapa" class="map-image">
                 </div>
             `;
-
-            const pinOuter = { leftPct: 54.6, topPct: 38.2, widthPx: 86, heightPx: 110, color: '#113563',
-                // exact px coordinates (design):
-                leftPx: 1140, topPx: 620, widthPxDesign: 38.33, heightPxDesign: 46 };
-            const pinInner = { leftPct: 54.6, topPct: 34.8, widthPx: 24, heightPx: 24, color: '#F5B941',
-                leftPx: 1152.78, topPx: 632.55, widthPxDesign: 12.78, heightPxDesign: 12.545 };
-
-            const wrapper = mapContainer.querySelector('.map-wrapper');
-            const img = wrapper.querySelector('.map-image');
-
-            // create pin elements but wait until image loads to position/scale them
-            const outerEl = document.createElement('div'); outerEl.className = 'map-pin-outer';
-            const innerEl = document.createElement('div'); innerEl.className = 'map-pin-inner';
-            // give them temporary hidden state until positioned
-            outerEl.style.opacity = '0'; outerEl.style.pointerEvents = 'none';
-            innerEl.style.opacity = '0'; innerEl.style.pointerEvents = 'none';
-            wrapper.appendChild(outerEl);
-            wrapper.appendChild(innerEl);
-
-            function positionPins() {
-                // natural image size
-                const natW = img.naturalWidth || img.width;
-                const natH = img.naturalHeight || img.height;
-                const dispW = img.clientWidth;
-                const dispH = img.clientHeight;
-                if (!natW || !natH) return;
-
-                // If design provides exact pixel coordinates, apply them so vectors match design exactly.
-                if (typeof pinOuter.leftPx === 'number' && typeof pinOuter.topPx === 'number') {
-                    outerEl.style.left = pinOuter.leftPx + 'px';
-                    outerEl.style.top = pinOuter.topPx + 'px';
-                    outerEl.style.width = (pinOuter.widthPxDesign || pinOuter.widthPx) + 'px';
-                    outerEl.style.height = (pinOuter.heightPxDesign || pinOuter.heightPx) + 'px';
-                    outerEl.style.background = pinOuter.color;
-                    outerEl.style.opacity = '1';
-                    outerEl.style.transform = 'none';
-                    outerEl.style.zIndex = '3';
-
-                    innerEl.style.left = pinInner.leftPx + 'px';
-                    innerEl.style.top = pinInner.topPx + 'px';
-                    innerEl.style.width = (pinInner.widthPxDesign || pinInner.widthPx) + 'px';
-                    innerEl.style.height = (pinInner.heightPxDesign || pinInner.heightPx) + 'px';
-                    innerEl.style.background = pinInner.color;
-                    innerEl.style.opacity = '1';
-                    innerEl.style.transform = 'none';
-                    innerEl.style.zIndex = '4';
-                } else {
-                    // Fallback: percentage-based placement
-                    const outerLeftPct = pinOuter.leftPct;
-                    const outerTopPct = pinOuter.topPct;
-                    const innerLeftPct = pinInner.leftPct;
-                    const innerTopPct = pinInner.topPct;
-                    const maxScale = Math.min(1, dispW / 900);
-                    const outerW = Math.max(28, Math.round(pinOuter.widthPx * maxScale));
-                    const outerH = Math.max(36, Math.round(pinOuter.heightPx * maxScale));
-                    const innerW = Math.max(10, Math.round(pinInner.widthPx * maxScale));
-                    const innerH = Math.max(10, Math.round(pinInner.heightPx * maxScale));
-                    outerEl.style.left = outerLeftPct + '%';
-                    outerEl.style.top = outerTopPct + '%';
-                    outerEl.style.width = outerW + 'px';
-                    outerEl.style.height = outerH + 'px';
-                    outerEl.style.background = pinOuter.color;
-                    outerEl.style.opacity = '1';
-                    outerEl.style.transform = 'translate(-50%, -100%)';
-                    outerEl.style.zIndex = '3';
-                    innerEl.style.left = innerLeftPct + '%';
-                    innerEl.style.top = innerTopPct + '%';
-                    innerEl.style.width = innerW + 'px';
-                    innerEl.style.height = innerH + 'px';
-                    innerEl.style.background = pinInner.color;
-                    innerEl.style.opacity = '1';
-                    innerEl.style.transform = 'translate(-50%, -50%)';
-                    innerEl.style.zIndex = '4';
-                }
-            }
-
-            // If image already cached and complete
-            if (img.complete && img.naturalWidth) {
-                positionPins();
-            } else {
-                img.addEventListener('load', positionPins);
-            }
-
-            // reposition on window resize to keep pins aligned
-            window.addEventListener('resize', function () {
-                // small debounce
-                clearTimeout(window._pinPositionTimeout);
-                window._pinPositionTimeout = setTimeout(positionPins, 120);
-            });
         }
     }
 

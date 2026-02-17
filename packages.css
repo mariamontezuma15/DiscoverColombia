@@ -128,9 +128,17 @@ body {
     font-weight: bold;
 }
 
+
+.paquetes,
+.destinos {
+    width: 92%;
+    max-width: 1150px;
+    margin: 60px auto 40px;
+}
+
 .section-title {
     font-size: 20px;
-    margin: 70px 0 15px 40px;
+    margin: 0 0 15px 0;
     color: #222;
 }
 
@@ -138,12 +146,12 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
     gap: 25px;
-    padding: 0 40px 40px 40px;
+    padding: 0;
 }
 
 /* tablet: allow two narrower columns */
 @media (max-width: 1200px) {
-    .paquetes-grid { grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); padding: 0 28px 32px 28px; }
+    .paquetes-grid { grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); padding: 0; }
     .card-paquete img { width: 38%; min-width: 180px; }
     .card-body { padding: 14px 16px; }
 }
@@ -281,7 +289,7 @@ body {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     gap: 15px;
-    padding: 0 40px 40px 40px;
+    padding: 0;
 }
 
 .destino-item {
@@ -374,7 +382,7 @@ body {
 
 /* Small screens refinement */
 @media (max-width: 520px) {
-    .paquetes-grid { padding: 0 16px 24px 16px; gap: 18px; }
+    .paquetes-grid { padding: 0; gap: 18px; }
     .card-body { padding: 12px 12px; }
     .price-block { min-width: 120px; text-align: left; }
     .rating { gap: 8px; }

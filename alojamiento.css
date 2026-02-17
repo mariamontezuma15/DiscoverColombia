@@ -149,6 +149,19 @@ button:hover {
     }
 }
 
+.map-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.map-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
 .descripcion {
     margin-left: 0;
     padding: 20px; /* Added padding for better spacing */
