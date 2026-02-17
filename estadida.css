@@ -56,6 +56,40 @@ header {
     background-color: #e0a33d;
 }
 
+/* Logged-in variant: show greeting and logout link */
+.btn-registro.logged-in {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+}
+.btn-registro.logged-in .user-menu { display: inline-flex; flex-direction: column; align-items: flex-end; }
+.btn-registro.logged-in .greeting { color: #ffffff; font-weight: 700; }
+.btn-registro.logged-in .logout-row a { color: #F9B748; font-weight: 700; text-decoration: none; }
+.btn-registro.logged-in .logout-row a:hover { color: #e0a33d; }
+
+/* Small pill logout button inside header */
+.btn-registro.logged-in .logout-row .btn-agregar-paquete {
+    padding: 6px 10px;
+    border-radius: 12px;
+    font-size: 13px;
+    box-shadow: 0 6px 16px rgba(243,167,59,0.12);
+}
+.btn-registro.logged-in .logout-row .btn-agregar-paquete:hover { transform: translateY(-1px); }
+
+/* Small yellow logout text (lighter weight, minimal padding) */
+.logout-link.small-logout {
+    color: #F9B748;
+    font-weight: 700;
+    font-size: 12px;
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
+    background: none;
+    box-shadow: none;
+}
+.logout-link.small-logout:hover { color: #F9B748; text-decoration: underline; background: none; }
+
 .hero {
     height: 280px;
     background-image: url('img/packages_bg.png');
