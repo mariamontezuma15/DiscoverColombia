@@ -58,6 +58,40 @@ h1,h2,h3{
     background-color: #e0a33d;
 }
 
+/* Logged-in variant: show greeting and logout link */
+.btn-registro.logged-in {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+}
+.btn-registro.logged-in .user-menu { display: inline-flex; flex-direction: column; align-items: flex-end; }
+.btn-registro.logged-in .greeting { color: #ffffff; font-weight: 700; }
+.btn-registro.logged-in .logout-row a { color: #F9B748; font-weight: 700; text-decoration: none; }
+.btn-registro.logged-in .logout-row a:hover { color: #e0a33d; }
+
+/* Small pill logout button inside header */
+.btn-registro.logged-in .logout-row .btn-agregar-paquete {
+    padding: 6px 10px;
+    border-radius: 12px;
+    font-size: 13px;
+    box-shadow: 0 6px 16px rgba(243,167,59,0.12);
+}
+.btn-registro.logged-in .logout-row .btn-agregar-paquete:hover { transform: translateY(-1px); }
+
+/* Small yellow logout text (lighter weight, minimal padding) */
+.logout-link.small-logout {
+    color: #F9B748;
+    font-weight: 700;
+    font-size: 12px;
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
+    background: none;
+    box-shadow: none;
+}
+.logout-link.small-logout:hover { color: #F9B748; text-decoration: underline; background: none; }
+
 h2 {
     font-size: 26px;
     margin: 25px 40px 5px 40px;
@@ -95,8 +129,9 @@ button:hover {
     width: 90%;
     margin: 30px auto;
     display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 30px;
+    grid-template-columns: 1.5fr 1fr; /* Adjusted column ratio for better alignment */
+    gap: 20px; /* Reduced gap for a tighter layout */
+    align-items: start; /* Align items to the top */
 }
 
 
@@ -115,17 +150,40 @@ button:hover {
 }
 
 .descripcion {
-    grid-column: span 2;
     margin-left: 0;
-    line-height: 1.6;
-    color: #333;
+    padding: 20px; /* Added padding for better spacing */
+    background-color: #fff; /* Ensure background is white */
+    border-radius: 10px; /* Added border radius for consistency */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for better visibility */
+    margin-bottom: 15px;
 }
 
+/* Modal and overlay used for admin editing */
+.overlay { position: fixed; left:0; top:0; right:0; bottom:0; background: rgba(0,0,0,0.35); display:block; z-index: 999; }
+.modal { position: fixed; left:50%; top:50%; transform: translate(-50%,-50%); z-index:1000; width: 92%; max-width: 640px; background: #fff; padding: 18px; border-radius: 10px; box-shadow: 0 10px 30px rgba(10,20,40,0.2); }
+.modal input, .modal textarea { width:100%; padding:10px; margin:8px 0; box-sizing:border-box; border-radius:8px; border:1px solid #e6e9ee; }
+.modal .modal-actions { display:flex; justify-content:flex-end; gap:8px; margin-top:8px; }
+.modal .modal-close { position:absolute; right:10px; top:8px; background:transparent; border:none; font-size:20px; cursor:pointer; }
+
+.btn-detalle { background:#0d2f62; color:#fff; padding:8px 12px; border-radius:8px; border:none; cursor:pointer; }
+.btn-detalle:hover { background:#0b2950; }
+
+/* Validation error text inside modal */
+.input-error { color: #b22222; font-size: 13px; margin-top: 4px; margin-bottom: 6px; }
+.modal label { font-size: 13px; color: #233; margin-top:8px; display:block; }
+
 .servicios {
-    grid-column: span 2;
+    /* place services under the description (left column) */
+    grid-column: 1 / 2;
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
+}
+
+/* place the direct child H3 (Servicios más populares) in the left column below description */
+.contenedor > h3 {
+    grid-column: 1 / 2;
+    margin-left: 0;
 }
 
 .servicios span {
@@ -201,4 +259,48 @@ footer {
 .f-principal {
     font-weight: bold;
     margin-bottom: 5px;
+}
+
+/* Responsive adjustments: stack columns and adapt gallery for smaller screens */
+@media (max-width: 1000px) {
+    .contenedor {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+    .imagenes {
+        height: auto;
+        margin-bottom: 56px;
+    }
+    .imagen-gallery {
+        grid-template-columns: 1fr;
+    }
+    .imagen-gallery .gallery-main img {
+        height: 420px;
+        object-fit: cover;
+    }
+    .imagen-gallery .gallery-side {
+        flex-direction: row;
+        gap: 8px;
+        height: auto;
+    }
+    .imagen-gallery .gallery-side .side-item { height: 120px; flex: 1 1 0; }
+    .imagen-gallery .gallery-thumbs { justify-content: flex-start; margin-bottom: 18px; }
+    .mapa { height: 220px; }
+    .descripcion { margin-top: 0; }
+    /* on smaller screens let services and heading span full width under description */
+    .servicios { grid-column: 1 / -1; }
+    .contenedor > h3 { grid-column: 1 / -1; }
+    #aloj-desc-title { grid-column: 1 / -1; margin-top: 20px; }
+}
+
+@media (max-width: 600px) {
+    .menu { gap: 10px; padding-right: 8px; }
+    .imagen-gallery .gallery-main img { height: auto; }
+    .imagen-gallery .gallery-side { flex-wrap: wrap; }
+    .imagen-gallery .gallery-side .side-item { width: 48%; height: 100px; }
+    .imagen-gallery .gallery-thumbs img { width: 64px; height: 48px; }
+    .imagenes { margin-bottom: 64px; }
+    .descripcion { margin-top: 22px; padding: 0 12px; }
+    .servicios { gap: 8px; }
+    .btn-registro.logged-in .greeting { font-size: 14px; }
 }

@@ -12,7 +12,6 @@ body {
     flex-direction: column;
     background-image: url('img/packages_bg.png');
     background-size: cover;
-    background-position: center;
     background-repeat: no-repeat;
 }
 
@@ -71,23 +70,159 @@ body {
     margin-top: 5%;
     margin-bottom: 5%;
     border-radius: 12px;
-    padding: 40px;
+    padding: 28px 28px 32px 28px;
     width: 100%;
-    max-width: 450px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    max-width: 520px;
+    box-shadow: 0 8px 28px rgba(11, 30, 60, 0.08);
+}
+
+/* Login-specific tweaks to match the provided mock */
+.form-container.login {
+    max-width: 560px;
+    padding: 42px 48px;
+    border-radius: 14px;
+    box-shadow: 0 12px 40px rgba(11,30,60,0.12);
+}
+.form-container.login h1 {
+    font-size: 22px;
+    margin-bottom: 22px;
+    letter-spacing: 0.2px;
+}
+.form-container.login .form-group { margin-bottom: 16px; }
+.form-container.login input[type="email"],
+.form-container.login input[type="password"] {
+    padding: 14px 18px;
+    border-radius: 12px;
+    font-size: 15px;
+    height: 48px;
+    border: 1px solid #eef3f8;
+    background: #fff;
+}
+.form-container.login input::placeholder { color: #9aa6b2; }
+
+.form-container.login .btn {
+    display: inline-block;
+    background-color: #F9B748;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 26px;
+    font-weight: 700;
+    box-shadow: 0 8px 20px rgba(243,166,56,0.12);
+    text-decoration: none;
+    margin-top: 12px;
+    margin-left: 12px; /* align under inputs */
+    transition: transform 0.14s cubic-bezier(.2,.8,.2,1), box-shadow 0.14s ease, background 0.12s ease;
+}
+.form-container.login .btn:hover {
+    background: #e0a33d;
+    transform: translateY(-3px);
+    box-shadow: 0 14px 32px rgba(243,166,56,0.18);
+}
+
+/* Make the button align visually to the left edge of inputs on small screens */
+@media (max-width: 520px) {
+    .form-container.login { padding: 24px; }
+    .form-container.login .btn { margin-left: 12px; width: auto; }
+}
+
+/* Medium screens: reduce navbar padding and make menu compact */
+@media (max-width: 800px) {
+    .navbar {
+        padding: 12px 18px;
+        height: 64px;
+    }
+    .logo img { height: 40px; }
+    .menu { display: none; }
+    .btn-registro a { padding: 8px 14px; }
+    .form-container { max-width: 480px; padding: 22px; }
+    .role-options { width: 100%; justify-content: space-between; }
+    .role-btn { flex: 1 1 auto; margin: 0 6px; }
+}
+
+/* Role selector styles */
+.role-selector {
+    text-align: center;
+    padding: 14px 6px 6px 6px;
+    margin-bottom: 8px;
+}
+.role-intro {
+    color: #475569;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+.role-options {
+    display: inline-flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: nowrap;
+    margin-bottom: 8px;
+    background: #f3f6fa;
+    padding: 6px;
+    border-radius: 999px;
+    border: 1px solid rgba(13,59,106,0.06);
+}
+.role-btn {
+    background: #0d3b6a;
+    color: #e2e8f0;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 14px;
+    transition: background 0.18s ease, color 0.18s ease, transform 0.08s ease;
+}
+.role-btn.admin {
+    color: #f3f6fa;
+    background-color: #e0a33d;
+}
+.role-btn:focus,
+.role-btn:hover {
+    background: rgba(5, 48, 165, 0.562);
+}
+.role-btn.admin:focus,
+.role-btn.admin:hover {
+    background: rgb(105, 71, 6);
+}
+
+/* Actions row for form buttons */
+.form-actions {
+    display: flex;
+    gap: 20px;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 12px;
+    width: 100%;
+    position: relative;
+}
+
+/* ensure extra spacing on desktop between back and submit */
+.form-actions .secondary-btn { margin-right: 12px; }
+
+/* center submit button horizontally inside .form-actions */
+.form-actions .submit-btn {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) translateY(0);
+}
+.role-btn.admin:hover {
+    background: #b07510; /* darker amber */
+    color: #fff;
+    box-shadow: 0 6px 16px rgba(176,117,16,0.14);
 }
 
 h1 {
-    color: #1a3a5c;
-    font-size: 28px;
-    margin-bottom: 30px;
-    font-weight: 600;
+    color: #112b44;
+    font-size: 22px;
+    margin-bottom: 18px;
+    font-weight: 700;
+    text-align: center;
 }
 
 .form-row {
     display: flex;
-    gap: 15px;
-    margin-bottom: 15px;
+    gap: 12px;
+    margin-bottom: 12px;
 }
 
 .form-group {
@@ -103,19 +238,19 @@ input[type="text"],
 input[type="email"],
 input[type="password"] {
     width: 100%;
-    padding: 14px 16px;
-    border: 1px solid #d1d5db;
-    border-radius: 8px;
+    padding: 12px 14px;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
     font-size: 15px;
-    transition: all 0.3s ease;
-    background: #f9fafb;
+    transition: box-shadow 0.18s ease, border-color 0.18s ease;
+    background: #fff;
 }
 
 input:focus {
     outline: none;
     border-color: #1e4a7a;
     background: white;
-    box-shadow: 0 0 0 3px rgba(30, 74, 122, 0.1);
+    box-shadow: 0 6px 18px rgba(17, 43, 68, 0.06);
 }
 
 .checkbox-group {
@@ -141,22 +276,45 @@ input[type="checkbox"] {
 }
 
 .submit-btn {
-    width: 60%;
-    padding: 14px;
-    background: #1e4a7a;
+    min-width: 160px;
+    padding: 12px 20px;
+    background: #0d3b6a;
     color: white;
     border: none;
-    border-radius: 25px;
-    font-size: 16px;
-    font-weight: 600;
+    border-radius: 999px;
+    font-size: 15px;
+    font-weight: 700;
     cursor: pointer;
-    transition: background 0.3s ease;
-    margin: 10px auto 0;
-    display: block;
+    transition: transform 0.12s ease, box-shadow 0.12s ease;
+    margin: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 18px rgba(13,59,106,0.12);
 }
 
-.submit-btn:hover {
-    background: #163a5f;
+.form-actions .submit-btn:hover {
+    /* preserve horizontal centering while moving slightly up */
+    transform: translateX(-50%) translateY(-2px);
+    box-shadow: 0 10px 28px rgba(13,59,106,0.14);
+}
+
+/* Botón secundario (Volver) */
+.secondary-btn {
+    background: transparent;
+    color: #0d3b6a;
+    border: 1px solid rgba(13,59,106,0.12);
+    padding: 8px 14px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: background 0.12s ease, transform 0.08s ease;
+    display: inline-flex;
+    align-items: center;
+}
+
+.secondary-btn:hover {
+    background: rgba(13,59,106,0.04);
 }
 
 .submit-btn:active {
@@ -186,4 +344,15 @@ input[type="checkbox"] {
     padding: 10px 20px;
     border-radius: 20px;
     border-color: #fff; 
+}
+@media (max-width: 520px) {
+    .form-container { padding: 20px; margin-top: 8%; }
+    .role-options { gap: 8px; padding: 6px; }
+    .submit-btn { width: 70%; display: block; margin: 0 auto; position: static; transform: none; }
+    .secondary-btn { width: 70%; display: block; margin: 6px auto 0; }
+    .form-actions { flex-direction: column-reverse; gap: 10px; }
+    .form-row { flex-direction: column; }
+    /* Make role buttons stack and fill width on small devices */
+    .role-btn { width: 100%; border-radius: 10px; padding: 10px; font-size: 15px; }
+    .role-options { flex-direction: column; gap: 8px; padding: 6px 4px; }
 }
