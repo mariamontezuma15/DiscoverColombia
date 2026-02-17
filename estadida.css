@@ -67,41 +67,93 @@ header {
 }
 
 .search-card {
-    width: 92%;
-    max-width: 980px;
-    margin: 0 auto;
-    background: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 800px;
+    background: #0d2f62;
+    padding: 25px;
     border-radius: 12px;
-    padding: 16px;
-    box-shadow: 0 6px 18px rgba(16, 38, 77, 0.25);
+    color: #fff;
+    z-index: 10;
     display: flex;
-    gap: 12px;
-    align-items: center;
-    position: relative;
-    z-index: 2;
-    transform: translateY(60px);
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: flex-end;
+}
+
+.search-card h1,
+.search-card h2 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 600;
+    flex-basis: 100%;
+    font-family: 'Roboto', 'Open Sans', sans-serif;
 }
 
 .search-card .field {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.search-card .field label {
+    font-size: 13px;
+    color: #e0e0e0;
+    font-weight: 500;
+}
+
+.search-card h1,
+.search-card h2 {
+    margin: 0;
+    font-size: 17px;
+    font-weight: 600;
+    white-space: nowrap;
 }
 
 .search-card input,
 .search-card select {
     width: 100%;
-    padding: 12px 14px;
+    padding: 13px 16px;
     border-radius: 8px;
-    border: 1px solid #e6e9ee;
+    border: 1px solid #ddd;
     font-size: 14px;
+    font-family: 'Roboto', 'Open Sans', sans-serif;
+    background-color: #fff;
+    color: #333;
+    box-sizing: border-box;
+}
+
+.search-card input::placeholder {
+    color: #999;
+}
+
+.search-card input:focus,
+.search-card select:focus {
+    outline: none;
+    border-color: #F9B748;
+    box-shadow: 0 0 0 3px rgba(249, 183, 72, 0.1);
 }
 
 .search-card .btn-search {
     background-color: #F9B748;
     border: none;
-    padding: 12px 22px;
-    border-radius: 10px;
+    padding: 13px 30px;
+    border-radius: 8px;
     font-weight: 700;
     cursor: pointer;
+    font-size: 15px;
+    color: #fff;
+    transition: background-color 0.3s ease;
+    align-self: flex-start;
+}
+
+.search-card .btn-search:hover {
+    background-color: #e0a33d;
 }
 
 /* CONTENT */
