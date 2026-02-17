@@ -190,7 +190,10 @@ body {
 .puntuacion {
     font-weight: bold;
     color: #0d2f62;
+    background-color: #F9B748;
     margin-right: 5px;
+    border-radius:  10px 10px 10px 0;
+    padding: 5px;
 }
 
 .comentarios {
@@ -326,3 +329,4 @@ footer p {
 .btn-agregar-paquete {
     margin-right: 40px;
 }
+

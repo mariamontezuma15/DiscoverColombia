@@ -66,8 +66,6 @@ header {
     align-items: center;
 }
 
-
-
 .search-card {
     width: 92%;
     max-width: 980px;
@@ -157,12 +155,15 @@ header {
 }
 
 .badge {
-    background: #17375f;
-    color: #fff;
+    color: #17375f;
     padding: 6px 8px;
     border-radius: 8px;
     font-weight: 700;
     font-size: 13px;
+    background-color: #F9B748;
+    margin-right: 5px;
+    border-radius:  10px 10px 10px 0;
+    padding: 5px;
 }
 
 .price {
