@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const tituloRegistro = document.getElementById('titulo-registro');
 
     let selectedRole = null;
+    const adminCode = Math.random().toString(36).slice(-8).toUpperCase();
+    console.log('Codigo de administrador generado:', adminCode);
 
     const backBtn = document.getElementById('btn-back-role');
 
@@ -46,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const apellido = document.getElementById('apellido').value.trim();
         const email = document.getElementById('email').value.trim();
         const password = document.getElementById('password').value;
-        const adminCode = document.getElementById('adminCode').value.trim();
+        const adminCodeInput = document.getElementById('adminCode').value.trim();
 
         if (!selectedRole) {
             alert('Selecciona primero si deseas registrarte como Usuario o Administrador.');
@@ -68,12 +70,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Si es admin, validar código (ejemplo simple: 'ADMIN123')
         if (selectedRole === 'admin') {
-            if (!adminCode) {
+            if (!adminCodeInput) {
                 alert('Ingresa el código de administrador.');
                 return;
             }
-            const VALID_ADMIN_CODE = 'ADMIN123';
-            if (adminCode !== VALID_ADMIN_CODE) {
+            if (adminCodeInput !== adminCode) {
                 alert('Código de administrador inválido.');
                 return;
             }
