@@ -243,15 +243,12 @@ body {
 }
 
 .puntuacion {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 42px;
-    height: 36px;
-    background: #0d2f62;
-    color: #fff;
-    border-radius: 8px;
-    font-weight: 700;
+    font-weight: bold;
+    color: #0d2f62;
+    background-color: #F9B748;
+    margin-right: 5px;
+    border-radius:  10px 10px 10px 0;
+    padding: 5px;
 }
 
 .comentarios {
@@ -614,3 +611,4 @@ footer p {
     transform: translateY(-3px);
     box-shadow: 0 10px 26px rgba(13,59,106,0.12);
 }
+
